@@ -5,9 +5,9 @@
 */
 
 // INITIALIZING PINS
-int buzzer =  7;  // +ve pin of the buzzer connected the digital pin 9 of arduino through a 1k ohm resistor
-int blueLED = 4; // connected to the digital pin 8 of the arduino through  a 1k ohm resistor
-int redLED = 2;  // connected to the digital pin 7 of the arduino through a 1k ohm resistor
+int buzzer =  7;  // +ve pin of the buzzer connected the digital pin 7 of arduino through a 1k ohm resistor
+int blueLED = 4; // connected to the digital pin 4 of the arduino through  a 1k ohm resistor
+int redLED = 2;  // connected to the digital pin 2 of the arduino through a 1k ohm resistor
 int sensor = A0;  // analogue pin of the sensor(MG2) connected to the analogue pin A0 in arduino board
 int sensorValue = 0;   // to store the reading from the sensor
 int threshold = 250; // above this value read from the sensr, the alarm goes off.
