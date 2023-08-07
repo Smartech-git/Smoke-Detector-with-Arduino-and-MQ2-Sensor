@@ -5,12 +5,12 @@
 */
 
 // INITIALIZING PINS
-int buzzer =  12;  // +ve pin of the buzzer connected the digital pin 12 of arduino through a 1k ohm resistor
-int blueLED = 11; // connected to the digital pin 11 of the arduino through  a 1k ohm resistor
-int redLED = 10;  // connected to the digital pin 10 of the arduino through a 1k ohm resistor
+int buzzer =  7;  // +ve pin of the buzzer connected the digital pin 9 of arduino through a 1k ohm resistor
+int blueLED = 4; // connected to the digital pin 8 of the arduino through  a 1k ohm resistor
+int redLED = 2;  // connected to the digital pin 7 of the arduino through a 1k ohm resistor
 int sensor = A0;  // analogue pin of the sensor(MG2) connected to the analogue pin A0 in arduino board
-int sensorValue;   // to store the reading from the sensor
-int threshold = 300; // above this value read from the sensr, the alarm goes off.
+int sensorValue = 0;   // to store the reading from the sensor
+int threshold = 250; // above this value read from the sensr, the alarm goes off.
 int delayTime = 200; // for LED blink time sequence
 int bFreq = 4000; // the frequency of the buzze when beeping
 
@@ -28,9 +28,10 @@ void setup() {
 
 // the loop function runs over and over again forever
 void loop() {
+  sensorValue = 0;
   sensorValue = analogRead(sensor);  // read the input value from the senorPin and store in the sensorValue
 
-  // prints the sensorValue to the serial monitor;
+  //prints the sensorValue to the serial monitor;
   Serial.print("Sensor value: ");
   Serial.println(sensorValue);
 
@@ -49,7 +50,8 @@ void loop() {
     delay(delayTime); // delay for 200 milliseconds
     
   }else {
-    digitalWrite(blueLED, HIGH);
-    
+    digitalWrite(blueLED, HIGH); // turn ON the Blue LED
+    digitalWrite(redLED, LOW);  // turn OFF the Red  LED
+    noTone(buzzer); // OFF buzzer
   }
 }
